@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load extra_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th style="padding-right:10px;">SSID</th>
+        <th style="padding-right:10px;">BSSID</th>
+        <th>RSSI</th>
+    </tr>
+    {% for i in values %}
+        <tr>
+            <td style="padding-right:10px;">{{ i|getlist:0 }}</td>
+            <td style="padding-right:10px;">{{ i|getlist:1 }}</td>
+            <td>{{ i|getlist:2 }}dbm</td>
+        </tr>
+    {% endfor %}
+</table>
+<br/><br/>
+last updated: {{ time|timesince }} ago
+<br/>
+</body>
+</html>
